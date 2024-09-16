@@ -1,17 +1,11 @@
+Перейдите в каталог проекта: перейдите в каталог ifcjs-webpack, который содержит шаблон, который вы только что клонировали:
 
-## IFCJS Webpack Template Example
+cd ifcjs-webpack
 
-# How To Use
+Установите зависимости:
+Установите все необходимые зависимости проекта с помощью следующей команды:
+bun install
 
-- Install bun (for macOS, Linux, and WSL)
-
-```bash
-curl -fsSL https://bun.sh/install | bash
-```
-
-# Run 
-
-```bash
+Запустите первый пример: Чтобы увидеть свой проект в действии, запустите начальный пример:
+bash
 bun run start
-```
-
