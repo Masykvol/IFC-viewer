@@ -5,18 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>IFC.js web viewers</title>
-    <!-- <title><%= htmlWebpackPlugin.options.title %></title> -->
+    <title>IFC.js Web Viewer</title>
 </head>
 <body>
-    <div class="header">
-      </div>
-      <div class="input">
-        <input type="file" name="load" id="file-input" />
-      </div>
-      <div class="canvas">
-        <canvas id="three-canvas"></canvas>
+    <header class="header">
+        <h1>IFC.js Web Viewer</h1>
+        <button id="theme-toggle">Toggle Theme</button>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <button id="ifc-button">Load IFC</button>
+            <button id="fbx-button">Load FBX</button>
+            <button id="clear-button">Clear Scene</button> <!-- Новая кнопка очистки -->
+            <input type="file" name="load" id="file-input" style="display: none;" />
+            <div class="recent-files">
+                <h2>Recent Files</h2>
+                <ul id="recent-files-list"></ul>
+            </div>
+        </div>
+        <div class="canvas-container">
+            <canvas id="three-canvas"></canvas>
+            <div class="drop-zone" id="drop-zone">
+                <p>Drag and drop files here</p>
+            </div>
+        </div>
     </div>
 
+    <div class="loading-panel" id="loading-panel">
+        <div id="loading-message">Loading...</div>
+        <progress id="loading-progress" value="0" max="100"></progress>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>

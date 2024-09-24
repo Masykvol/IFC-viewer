@@ -1,42 +1,201 @@
-body{
-    background: linear-gradient(147deg, rgba(164, 222, 255, 0.6) 4%, rgba(135, 22, 0, 0.5) 96%);    
+/* style.css */
+body {
+    background-color: #1e1e1e;
     height: 100%;
     margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.header{
+body.light-theme {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.header {
     text-align: center;
+    height: 60px;
+    background-color: #2c2c2c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 0 20px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.header h1{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 60px;
-    text-shadow: 3px 2px rgb(248, 119, 55);
-    color: #ffba00;
+.header.light-theme {
+    background-color: #f8f9fa;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.canvas {
-    position:absolute;
-    /* left:50%;
-    top:50%;
-    transform: translate(-50%, -50%);
-    margin-top: 3%; */
+.header h1 {
+    font-size: 24px;
+    margin: 0;
 }
 
-#file-input {
-    z-index: 1;
+.header button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 10px;
+}
+
+.header button:hover {
+    background-color: #0056b3;
+}
+
+.container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    padding: 20px;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar.light-theme {
+    background-color: #f8f9fa;
+    color: #333;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar button:hover {
+    background-color: #0056b3;
+}
+
+.recent-files {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.recent-files h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.recent-files ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recent-files ul li {
+    padding: 10px;
+    background-color: #444;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.recent-files ul li.light-theme {
+    background-color: #e9ecef;
+    color: #333;
+}
+
+.recent-files ul li:hover {
+    background-color: #555;
+}
+
+.recent-files ul li.light-theme:hover {
+    background-color: #d3d3d3;
+}
+
+.canvas-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
     position: relative;
-    left:52%;
-    transform: translateX(-52%);
-    font-size: 15px;
+    transition: background-color 0.3s;
+    width: 100%;
+    height: 100%;
 }
-#three-canvas{
-    position: relative;
-    height: 100% !important;
-    width: 100% !important;
+
+.canvas-container.light-theme {
+    background-color: #fff;
+}
+
+#three-canvas {
+    width: 1229.2px !important;
+    height: 650px !important;
+    position: absolute;
     z-index: 10;
+}
 
+#drop-zone {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 20;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#drop-zone p {
+    font-size: 18px;
+    color: #ccc;
+}
+
+.loading-panel {
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    display: none; /* Initially hidden */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.loading-panel.light-theme {
+    background-color: #fff;
+    color: #333;
+}
+
+#loading-message {
+    margin-right: 10px;
+}
+
+#loading-progress {
+    width: 80%;
+    height: 20px;
 }
